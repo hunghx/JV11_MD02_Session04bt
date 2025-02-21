@@ -4,7 +4,7 @@ public class Student {
     //  các  thộc tính
     private String studentId;
     private String studentName;
-    private int age;
+    private byte age;
     private boolean sex;
     private String address;
     private String phone;
@@ -13,7 +13,7 @@ public class Student {
     public Student() {
     }
 
-    public Student(String studentId, String studentName, int age, boolean sex, String address, String phone) {
+    public Student(String studentId, String studentName, byte age, boolean sex, String address, String phone) {
         this.studentId = studentId;
         this.studentName = studentName;
         this.age = age;
@@ -39,11 +39,11 @@ public class Student {
         this.studentName = studentName;
     }
 
-    public int getAge() {
+    public byte getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(byte age) {
         this.age = age;
     }
 
@@ -75,19 +75,21 @@ public class Student {
     public void inputData(Scanner scanner, boolean isAdd) {
         // nhap thong tin cua doi tuong
         if(isAdd) {
-            System.out.println("Nhap Id : ");
+            System.out.println("Nhap Id : "); //ko đc để trống, ko đc trùng lặp, Phải băt đầu ằng chữ S, nếu có lỗi sinh ra thì in ra lỗi và bat ng dùng nhập lại
             studentId = scanner.nextLine();
         }
         System.out.println("Nhap Name : ");
         studentName = scanner.nextLine();
         System.out.println("Nhap Age : ");
-        age = Integer.parseInt(scanner.nextLine());
+        age = Byte.parseByte(scanner.nextLine());
         System.out.println("Nhap Sex(true/false) : ");
         sex = Boolean.parseBoolean(scanner.nextLine());
         System.out.println("Nhap Address : ");
         address = scanner.nextLine();
         System.out.println("Nhap Phone : ");
         phone = scanner.nextLine();
+
+        // xử lí các lỗi sinh ra để tránhchuowngfg trình bị dừng đột ngột
     }
 
     public void displayData() {
